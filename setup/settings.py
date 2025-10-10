@@ -120,6 +120,17 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = [
+# Cria o caminho completo até a pasta 'setup/static', 
+# unindo o diretório base do projeto (BASE_DIR) com o caminho relativo 'setup/static'. 
+# Isso permite que o Django encontre os arquivos estáticos durante o desenvolvimento.
+    os.path.join(BASE_DIR, 'setup/static')
+]
+
+# Define o diretório final onde todos os arquivos estáticos serão reunidos 
+# quando o comando 'collectstatic' for executado (usado principalmente em produção).
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
